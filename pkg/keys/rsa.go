@@ -49,6 +49,7 @@ func GenerateRSAKey(session *api.Session, keyID byte, bits uint) (*RSAKey, error
 		[]*pkcs11.Attribute{
 			pkcs11.NewAttribute(pkcs11.CKA_ENCRYPT, pkcs11.CK_TRUE),
 			pkcs11.NewAttribute(pkcs11.CKA_VERIFY, pkcs11.CK_TRUE),
+			pkcs11.NewAttribute(pkcs11.CKA_ID, []byte{keyID}),
 			// pkcs11.NewAttribute(pkcs11.CKA_WRAP, pkcs11.CK_TRUE),
 			pkcs11.NewAttribute(pkcs11.CKA_MODULUS_BITS, bits),
 		},
